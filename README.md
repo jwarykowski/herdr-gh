@@ -104,8 +104,8 @@ one GitHub API call per workspace per poll.
 
 ## Support
 
-herdr-gh is free and MIT licensed. If it saves you a trip to the browser, you can
-[sponsor its development](https://github.com/sponsors/jwarykowski).
+herdr-gh is free and MIT licensed. If it saves you a trip to the browser, you
+can [sponsor its development](https://github.com/sponsors/jwarykowski).
 
 ## License
 
