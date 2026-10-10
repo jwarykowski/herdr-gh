@@ -102,6 +102,11 @@ For every workspace the reporter takes the first pane's directory, asks
 `herdr workspace report-metadata` under the source `herdr-gh`. That is about
 one GitHub API call per workspace per poll.
 
+## Support
+
+herdr-gh is free and MIT licensed. If it saves you a trip to the browser, you
+can [sponsor its development](https://github.com/sponsors/jwarykowski).
+
 ## License
 
 MIT
