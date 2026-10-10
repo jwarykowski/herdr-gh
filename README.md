@@ -65,6 +65,30 @@ command = "jwarykowski.herdr-gh.refresh"
 description = "refresh GitHub status"
 ```
 
+## Hooks
+
+Run your own commands when a PR changes: an executable in
+`$(herdr plugin config-dir jwarykowski.herdr-gh)/hooks/` named after the event.
+
+| event | when |
+|---|---|
+| `pr.merged` / `pr.closed` | the PR was merged / closed without merging |
+| `ci.passed` / `ci.failed` | checks finished |
+| `review.approved` / `review.changes_requested` | the review decision changed |
+
+Changes are spotted by the poll, so a hook runs up to a minute after the
+event. A PR the reporter hasn't seen before is only recorded, so restarts and
+branches merged while herdr was closed fire nothing.
+
+Hooks get `HERDR_GH_EVENT`, `_PR` (number), `_URL`, `_REPO` (`owner/name`),
+`_TITLE`, `_BRANCH` and `_WORKSPACE_ID`, and log to `hooks.log` in the
+plugin's state directory. For example, `hooks/pr.merged`:
+
+```sh
+#!/bin/sh
+herdr plugin action invoke party --plugin jwarykowski.herdr-zsa-lights
+```
+
 ## Configuration
 
 Optional. Put overrides in `config.env` inside the plugin config directory
