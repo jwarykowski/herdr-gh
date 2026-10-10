@@ -1,0 +1,20 @@
+id = "jwarykowski.herdr-gh"
+name = "GitHub status"
+version = "0.1.0"
+min_herdr_version = "0.9.3"
+description = "Each workspace's pull request in the sidebar: number, CI and review in a few characters, e.g. #412│×│!"
+platforms = ["linux", "macos"]
+
+# keep the reporter running for the session; it exits when herdr stops
+[[startup]]
+command = ["bin/herdr-gh", "start"]
+
+[[actions]]
+id = "refresh"
+title = "GitHub status: refresh now"
+command = ["bin/herdr-gh", "once"]
+
+[[actions]]
+id = "restart"
+title = "GitHub status: restart reporter (after config changes)"
+command = ["sh", "-c", "bin/herdr-gh stop; bin/herdr-gh start"]
