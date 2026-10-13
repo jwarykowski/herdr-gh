@@ -1,7 +1,4 @@
-<table>
-<tr>
-<td width="200" valign="top"><img src="assets/herdr-gh.png" alt="herdr-gh" width="180"></td>
-<td valign="top">
+<p align="center"><img src="assets/herdr-gh.svg" alt="herdr-gh" width="120"></p>
 
 # herdr-gh
 
@@ -113,9 +110,5 @@ herdr-gh is free and MIT licensed. If it saves you a trip to the browser, you
 can [sponsor its development](https://github.com/sponsors/jwarykowski).
 
 ## License
-
-</td>
-</tr>
-</table>
 
 MIT
