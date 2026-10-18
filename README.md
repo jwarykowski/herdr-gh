@@ -71,10 +71,13 @@ description = "refresh GitHub status"
 
 Run your own commands when a PR changes: an executable in
 `$(herdr plugin config-dir jwarykowski.herdr-gh)/hooks/` named after the event.
+The names are [keybars Pro](https://keybars.app/pro/cli/#event-names)'s GitHub
+events, so a hook can pass them straight on.
 
 | event | when |
 |---|---|
-| `pr.merged` / `pr.closed` | the PR was merged / closed without merging |
+| `pull_request.merged` / `pull_request.closed` | the PR was merged / closed without merging |
+| `ci.running` | checks started (again) |
 | `ci.passed` / `ci.failed` | checks finished |
 | `review.approved` / `review.changes_requested` | the review decision changed |
 
@@ -84,12 +87,17 @@ branches merged while herdr was closed fire nothing.
 
 Hooks get `HERDR_GH_EVENT`, `_PR` (number), `_URL`, `_REPO` (`owner/name`),
 `_TITLE`, `_BRANCH` and `_WORKSPACE_ID`, and log to `hooks.log` in the
-plugin's state directory. For example, `hooks/pr.merged`:
+plugin's state directory. For example, `hooks/pull_request.merged` sends the
+event to keybars Pro, where any GitHub rule, such as the marketplace's
+merge-confetti, plays it:
 
 ```sh
 #!/bin/sh
-herdr plugin action invoke party --plugin jwarykowski.herdr-zsa-lights
+keybars-pro notify -source github -repo "$HERDR_GH_REPO" -branch "$HERDR_GH_BRANCH" "$HERDR_GH_EVENT"
 ```
+
+[herdr-keybars](https://code.warykowski.io/jwarykowski/herdr-keybars)'s setup
+links all of them for you.
 
 ## Configuration
 

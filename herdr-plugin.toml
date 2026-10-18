@@ -1,8 +1,8 @@
 id = "jwarykowski.herdr-gh"
 name = "GitHub status"
-version = "0.2.0"
+version = "0.3.0"
 min_herdr_version = "0.9.3"
-description = "Each workspace's pull request in the sidebar (number, CI and review in a few characters, e.g. #412│×│!), plus hooks when a PR is merged, CI finishes or a review lands"
+description = "Each workspace's pull request in the sidebar (number, CI and review in a few characters, e.g. #412│×│!), plus hooks named after keybars Pro's GitHub events when a PR is merged, CI runs or finishes, or a review lands"
 platforms = ["linux", "macos"]
 
 # keep the reporter running for the session; it exits when herdr stops

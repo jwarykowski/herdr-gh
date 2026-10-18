@@ -99,10 +99,10 @@ events() {
   printf '%s\x1f%s\x1f%s\n' "$pr_state" "$pr_ci" "$pr_review" >"$file"
   ((seen)) || return 0
   if [[ "$pr_state" != "$prev_state" && "$pr_state" != open ]]; then
-    hook "pr.$pr_state"
+    hook "pull_request.$pr_state"
   fi
   if [[ "$pr_state" == open ]]; then
-    if [[ "$pr_ci" != "$prev_ci" && ("$pr_ci" == passed || "$pr_ci" == failed) ]]; then
+    if [[ "$pr_ci" != "$prev_ci" && -n "$pr_ci" ]]; then
       hook "ci.$pr_ci"
     fi
     if [[ "$pr_review" != "$prev_review" && -n "$pr_review" ]]; then
