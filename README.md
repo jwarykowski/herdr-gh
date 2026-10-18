@@ -2,6 +2,10 @@
 
 # herdr-gh
 
+> **Moved into [herdr-keybars](https://code.warykowski.io/jwarykowski/herdr-keybars)**,
+> which does this (each workspace's pull request in the sidebar, with its changes sent to keybars Pro as GitHub's events) alongside your agents on the keyboard. This
+> plugin isn't developed further; uninstall it and install herdr-keybars.
+
 A [herdr](https://herdr.dev) plugin that puts each workspace's pull request in
 the sidebar — number, CI and review in a few characters, next to the branch:
 
